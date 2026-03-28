@@ -1,0 +1,21 @@
+baseURL = 'https://igniting.github.io/six-months/'
+languageCode = 'en-us'
+title = 'Six Months'
+
+[params]
+  subtitle = "A CTO's Reckoning with the AI Inflection Point"
+  author = "Anshu Avinash"
+  description = "Written in the spirit of Andrew S. Grove's Only the Paranoid Survive — a story of denial, awakening, and transformation at the edge of the AI era."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "feed"

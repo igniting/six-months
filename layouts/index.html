@@ -1,0 +1,47 @@
+{{ define "main" }}
+<div class="home">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-label">A Treatise on the AI Inflection Point</span>
+      <h1>Six Months</h1>
+      <p class="hero-subtitle">A CTO's Reckoning with the AI Inflection Point</p>
+      <hr class="hero-rule">
+      <p class="hero-description">
+        Written in the spirit of Andrew S. Grove's <em>Only the Paranoid Survive</em> — a story of denial, awakening, and transformation at the edge of the AI era.
+      </p>
+    </div>
+  </header>
+
+  <!-- Table of Contents -->
+  <section class="toc-section">
+    <p class="toc-heading">Chapters</p>
+    <ol class="toc-list">
+      {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
+      {{ range sort $chapters ".Params.weight" }}
+      <li class="toc-item">
+        <a href="{{ .RelPermalink }}" class="toc-link">
+          <span class="toc-number">{{ printf "%02d" .Params.weight }}</span>
+          <div>
+            <span class="toc-title">{{ .Params.short_title | default .Title }}</span>
+            {{ with .Params.excerpt }}
+            <span class="toc-excerpt">{{ . }}</span>
+            {{ end }}
+          </div>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+
+  <!-- Colophon -->
+  <footer class="colophon">
+    <p>
+      A 2026 treatise on the Strategic Inflection Point that changed everything.<br>
+      Written in the spirit of Andrew S. Grove.
+    </p>
+  </footer>
+
+</div>
+{{ end }}
