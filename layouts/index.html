@@ -6,19 +6,56 @@
     <div class="hero-inner">
       <span class="hero-label">A Treatise on the AI Inflection Point</span>
       <h1>Six Months</h1>
-      <p class="hero-subtitle">A CTO's Reckoning with the AI Inflection Point</p>
       <hr class="hero-rule">
+      <p class="hero-author">Anshu Avinash</p>
       <p class="hero-description">
         Written in the spirit of Andrew S. Grove's <em>Only the Paranoid Survive</em> — a story of denial, awakening, and transformation at the edge of the AI era.
       </p>
+
+      <div class="hero-quote">
+        <blockquote>
+          "You and I started this company in your apartment in Sunnyvale. We had no funding, no customers, no product. We built all of it. And now I'm telling you that the thing we built — the thing that <em>worked</em>, the thing that got us to six hundred million — is not the thing that gets us to the next six hundred million."
+          <br><br>
+          Anil was quiet for a moment. Then he said: "I've been waiting for you to say that since August."
+          <br><br>
+          August. Six months.
+        </blockquote>
+        <cite>— Chapter 5</cite>
+      </div>
     </div>
   </header>
+
+  <!-- Preface -->
+  <section class="preface">
+    <p class="preface-heading">Preface</p>
+    <p>
+      In 1996, Andy Grove wrote <em>Only the Paranoid Survive</em> to describe the moment when a business faces a force so powerful that it changes the very foundations on which the business operates. He called it a Strategic Inflection Point. He had lived through one at Intel. He wrote the book so others might recognize the next one before it was too late.
+    </p>
+    <p>
+      This is a story about the next one.
+    </p>
+    <p>
+      Vikram is a fictional CTO. Arcline is a fictional company. But the inflection point they face is not fictional at all. Between 2022 and 2026, artificial intelligence went from a curiosity to a force that reshaped every knowledge-work industry on earth. I wrote this story to explore what that transition feels like from the inside — the denial, the delay, the loss, the reckoning, and the hard, unfinished work of transformation.
+    </p>
+    <p>
+      The characters and company are composites, drawn from real patterns I have observed across the industry. The emotions are real. The lessons are real. I wrote it for the executives, engineers, and knowledge workers who sense the ground shifting under their feet and are not sure what to do about it.
+    </p>
+    <p class="preface-signature">
+      — Anshu Avinash, March 2026
+    </p>
+  </section>
+
+  <!-- Begin Reading -->
+  <div class="cta-section">
+    {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
+    {{ $first := index (sort $chapters ".Params.weight") 0 }}
+    <a href="{{ $first.RelPermalink }}" class="cta-link">Begin Reading</a>
+  </div>
 
   <!-- Table of Contents -->
   <section class="toc-section">
     <p class="toc-heading">Chapters</p>
     <ol class="toc-list">
-      {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
       {{ range sort $chapters ".Params.weight" }}
       <li class="toc-item">
         <a href="{{ .RelPermalink }}" class="toc-link">
@@ -38,8 +75,7 @@
   <!-- Colophon -->
   <footer class="colophon">
     <p>
-      A 2026 treatise on the Strategic Inflection Point that changed everything.<br>
-      Written in the spirit of Andrew S. Grove.
+      The paranoid survive. The rest explain to their boards what happened.
     </p>
   </footer>
 
